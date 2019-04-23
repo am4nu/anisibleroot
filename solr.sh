@@ -24,3 +24,14 @@ update-alternatives --display javac
 
 #check if java is running
 java -version
+cd /opt
+wget https://archive.apache.org/dist/lucene/solr/6.5.1/solr-6.5.1.zip
+unzip solr-6.5.1.zip
+cd solr-6.5.1/bin
+
+./install_solr_service.sh ../../solr-6.5.1.zip
+
+cd /opt/solr/bin
+sudo -u solr  ./solr  create -c ckan
+rm managed-schema
+service solr restart
