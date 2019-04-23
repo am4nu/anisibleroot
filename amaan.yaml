@@ -1,4 +1,4 @@
-  
+    
 ---
 - hosts: test
   become: True
@@ -8,3 +8,15 @@
     ansible_become_pass: amen
   tasks:
     - script: ./solr.sh
+    - name: copy fiies
+      copy:
+         src: solrconfig.xml
+         dest: /var/solr/data/ckan/conf
+         force: yes
+    - name: copy fles 2
+      copy:
+         src: schema.xml
+         dest: /var/solr/data/ckan/conf
+         force: yes
+    - script: ./restart.sh
+  
