@@ -18,5 +18,5 @@
          src: schema.xml
          dest: /var/solr/data/ckan/conf
          force: yes
-    - script: ./restart.sh
+    - script: ./ckan.sh
   
