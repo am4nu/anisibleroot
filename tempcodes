@@ -1,0 +1,14 @@
+cd solr-6.5.1/bin
+
+./install_solr_service.sh ../../solr-6.5.1.zip
+
+export ANSIBLE_HOST_KEY_CHECKING=False
+export ANSIBLE_DEBUG=True 
+
+cd /opt/solr/bin
+
+
+
+sudo -u solr  ./solr  create -c ckan
+sudo rm managed-schema
+sudo service solr restart
